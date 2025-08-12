@@ -1,23 +1,26 @@
-[project]
-name = "robot-nav"
+[tool.poetry]
+name = "robot-nav-ir-sim"
 version = "0.1.0"
-description = ""
-authors = [
-    {name = "reinis",email = "ireinisi@gmail.com"}
-]
+description = "DRL-based robot navigation in IR-SIM using SAC, TD3, PPO, DDPG"
+authors = ["reinis <ireinisi@gmail.com>"]
 readme = "README.md"
-requires-python = ">=3.10"
-dependencies = [
-    "ir-sim[all] (>=2.3.0,<3.0.0)",
-    "torch (>=2.5.1,<3.0.0)",
-    "tensorboard (>=2.18.0,<3.0.0)",
-    "tqdm (>=4.67.1,<5.0.0)",
-    "pytest (>=8.3.4,<9.0.0)",
-    "mkdocs (>=1.6.1,<2.0.0)",
-    "mkdocstrings[python] (>=0.29.1,<0.30.0)",
-    "mkdocs-material (>=9.6.11,<10.0.0)",
-    "scipy (>=1.15.2,<2.0.0)",
-]
+
+[tool.poetry.dependencies]
+python = ">=3.10"
+ir-sim = { version = ">=2.3.0,<3.0.0", extras = ["all"] }
+torch = ">=2.5.1,<3.0.0"
+tensorboard = ">=2.18.0,<3.0.0"
+tqdm = ">=4.67.1,<5.0.0"
+pytest = ">=8.3.4,<9.0.0"
+mkdocs = ">=1.6.1,<2.0.0"
+mkdocstrings = { version = ">=0.29.1,<0.30.0", extras = ["python"] }
+mkdocs-material = ">=9.6.11,<10.0.0"
+scipy = ">=1.15.2,<2.0.0"
+
+[tool.poetry.group.dev.dependencies]
+# add any development-only dependencies here, for example:
+# black = "latest"
+# isort = "latest"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
